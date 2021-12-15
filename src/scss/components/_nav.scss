@@ -1,0 +1,13 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include flex(space-between, row);
+    &__right {
+        .img {
+            width: 10rem;
+        }
+    }
+    &___left {
+    }
+}

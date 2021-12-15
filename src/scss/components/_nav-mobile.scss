@@ -1,0 +1,38 @@
+.nav__left--mobile {
+    &[data-show-menu="false"] {
+        .menu-content {
+            display: none;
+        }
+    }
+    @include flex();
+    gap: 1rem;
+    padding: 1.5rem 0;
+    .icon {
+        width: 2.5rem;
+    }
+    .menu-content {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+    }
+    .search-bar {
+        width: 80%;
+        margin: 1em auto;
+        border: 2px solid $black-color;
+        border-radius: 0.5rem;
+        padding: 0.5em 1em;
+        @include flex(center, row);
+        input {
+            color: $main-color;
+        }
+    }
+    .nav__list {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 600;
+        li {
+            margin-bottom: 0.5em;
+        }
+    }
+}

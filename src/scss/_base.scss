@@ -1,0 +1,40 @@
+// import font and other cdn
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800&display=swap");
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; // 1rem = 10px;
+    font-family: $main-font;
+}
+
+body {
+    font-size: 1.6rem;
+    color: $text-color;
+    background: $bg-color;
+    line-height: 1.5;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+input {
+    min-width: 20rem;
+    border: none;
+    font-family: $main-font;
+}
+
+button {
+    font-family: $main-font;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
