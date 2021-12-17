@@ -1,8 +1,8 @@
 .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     @include flex(space-between, row);
+    background: $white-color;
+    z-index: $float-layer;
     &__right {
         .img {
             width: 10rem;

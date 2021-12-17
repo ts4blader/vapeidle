@@ -1,20 +1,33 @@
 .nav__left--mobile {
     &[data-show-menu="false"] {
         .menu-content {
-            display: none;
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
+    &[data-dark-mode="true"] {
+        .toggle-dark-mode {
+            background: $main-color;
+            border-radius: 0.5rem;
+            padding: 0.3rem;
         }
     }
     @include flex();
     gap: 1rem;
     padding: 1.5rem 0;
     .icon {
-        width: 2.5rem;
+        width: 3rem;
+        &.toggle-dark-mode {
+            transition: 0.2s ease;
+        }
     }
     .menu-content {
+        z-index: -1;
         position: absolute;
         width: 100%;
         top: 100%;
         left: 0;
+        transition: 0.3s ease;
     }
     .search-bar {
         width: 80%;

@@ -3,11 +3,21 @@ import Icon from "./Icon";
 
 export default function NavMobile() {
   const [showMenu, setShowMenu] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className="nav__left--mobile" data-show-menu={showMenu}>
+    <div
+      className="nav__left--mobile"
+      data-show-menu={showMenu}
+      data-dark-mode={darkMode}
+    >
       {/* Controllers */}
-      <Icon src="moon.svg" alt="dark-mode" />
+      <Icon
+        src={darkMode ? "moon-dark.svg" : "moon.svg"}
+        alt="dark-mode"
+        className="toggle-dark-mode"
+        onClick={() => setDarkMode((state) => !state)}
+      />
       <Icon
         src={showMenu ? "cross.svg" : "menu.svg"}
         alt="menu"
