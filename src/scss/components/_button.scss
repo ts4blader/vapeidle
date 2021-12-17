@@ -1,0 +1,40 @@
+.button {
+    cursor: pointer;
+    @include flex();
+    gap: 0.5em;
+    color: $white-color;
+    background: $main-color;
+    border-radius: 0.3em;
+    padding: 0.5em 1em;
+    &[data-orient="y"] {
+        flex-direction: column;
+    }
+    &[data-variant="bordered"] {
+        background: $white-color;
+        color: $white-color;
+        border: 2px solid $main-color;
+    }
+    &[data-variant="blacked"] {
+        background: $black-color;
+        color: $white-color;
+    }
+    &[data-variant="bordered-blacked"] {
+        background: $white-color;
+        color: $black-color;
+        border: 2px solid $black-color;
+    }
+    &[data-variant="disabled"] {
+        background: $white-color;
+        color: $light-gray;
+        border: 2px solid $light-gray;
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+    &__img {
+        width: 2.4rem;
+    }
+    &__text {
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+}
