@@ -4,10 +4,11 @@
         font-size: 3rem;
         font-weight: bold;
         text-transform: uppercase;
+        line-height: 1;
     }
     .bar {
         width: MIN(30%, 20rem);
-        height: 0.5rem;
+        height: 0.3rem;
         background: $black-color;
         margin-top: 0.5em;
         border-radius: 0.5rem;

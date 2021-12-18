@@ -1,0 +1,56 @@
+$base: 1;
+$float: 3;
+
+.slider {
+    position: relative;
+    margin: 5vmin 0;
+    .glide {
+        &__bullets {
+            display: flex;
+            gap: 0.5rem;
+            @include abs-center("x");
+            bottom: 5%;
+            z-index: $float;
+        }
+        &__bullet {
+            position: relative;
+            border: none;
+            background: $black-color;
+            border-radius: 0.3rem;
+            @include size(2rem);
+            &--active {
+                background: $main-color;
+            }
+        }
+        &__slide {
+            position: relative;
+            color: $white-color;
+            img {
+                object-fit: cover;
+                min-height: 30rem;
+                filter: brightness(0.7);
+            }
+            .basic-info {
+                @include abs-center("y");
+                left: 10%;
+                .categories {
+                    text-transform: capitalize;
+                }
+                .bar {
+                    width: 1px;
+                    min-height: 15rem;
+                    background: $white-color;
+                }
+            }
+            .name {
+                position: absolute;
+                right: 0;
+                top: 10%;
+                background: $black-color;
+                padding: 0.8em 1em;
+                border-radius: 0.5rem 0 0 0.5rem;
+                max-width: 50%;
+            }
+        }
+    }
+}

@@ -3,12 +3,16 @@
 @import "./mixin";
 @import "./base";
 
+// libs
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
 // ============================== Components ===================================
 @import "./components/nav";
 @import "./components/button";
 @import "./components/nav-mobile";
 @import "./components/hero";
 @import "./components/section-title";
+@import "./components/slider";
 
 // ============================== Pages ===================================
 
