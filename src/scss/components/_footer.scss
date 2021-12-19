@@ -1,0 +1,38 @@
+.footer {
+    background: $main-color;
+    color: $white-color;
+    padding: 2rem 0;
+    @include flex();
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    .pillar {
+        flex-basis: 15rem;
+        flex-grow: 1;
+        .title {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        ul {
+            margin-top: 0.3em;
+            a {
+                color: inherit;
+                text-decoration: underline;
+            }
+            &.social {
+                li {
+                    & > a {
+                        text-decoration: none;
+                        @include flex(flex-start, row);
+                        gap: 0.5rem;
+                    }
+                    .icon {
+                        width: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
