@@ -4,4 +4,16 @@ const TREND_OPTIONS = {
   gap: 0,
 };
 
-export { TREND_OPTIONS };
+const carousel_gap = 20;
+
+const CAROUSEL_OPTIONS = {
+  perView: 2,
+  autoplay: 7000,
+  gap: carousel_gap,
+  peek: {
+    before: 0,
+    after: carousel_gap * 3,
+  },
+};
+
+export { TREND_OPTIONS, CAROUSEL_OPTIONS };

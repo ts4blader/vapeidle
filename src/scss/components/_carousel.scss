@@ -1,0 +1,53 @@
+.carousel {
+    &__top {
+        @include flex(space-between, row);
+        .title {
+            @include flex();
+            gap: 0.5rem;
+            .icon {
+                width: 3rem;
+            }
+            .text {
+                font-family: $sub-font;
+                font-size: 2.5rem;
+                font-weight: bold;
+            }
+        }
+        .view-btn {
+            cursor: pointer;
+            @include flex();
+            gap: 0.5rem;
+            .text {
+            }
+            .icon {
+                width: 2.4rem;
+            }
+        }
+    }
+    .glide__slides {
+        padding-left: 2rem;
+        margin-top: 2rem;
+    }
+    .glide__slide {
+        position: relative;
+        img {
+            border-radius: 0.5rem;
+            object-fit: cover;
+            min-height: 20rem;
+            filter: brightness(0.7);
+        }
+        .content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            color: $white-color;
+            .name {
+                font-weight: bold;
+            }
+            .price {
+                margin-top: 0.5em;
+            }
+        }
+    }
+}

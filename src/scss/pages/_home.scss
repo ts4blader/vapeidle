@@ -1,11 +1,22 @@
 .home-page {
     section {
-        margin: 5vmin 0;
+        margin: 3rem 0;
     }
     .hero {
         img {
             border-radius: 1rem;
             margin-top: 1em;
+            height: 30rem;
+        }
+    }
+    .hero:nth-of-type(2) {
+        .hero__labels {
+            display: none;
+        }
+        video {
+            width: MIN(100%, 50rem);
+            border-radius: 1rem;
+            margin-top: 1.5em;
         }
     }
 }
