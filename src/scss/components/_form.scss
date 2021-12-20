@@ -1,0 +1,55 @@
+.form {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    .title {
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    form {
+        .button {
+            font-size: 1.8rem;
+            max-width: 20rem;
+            margin: 1em auto;
+        }
+    }
+    .link {
+        span {
+            cursor: pointer;
+            color: $link-color;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.signin-form {
+    &__bottom {
+        .auth-section {
+            @include flex();
+            gap: 2rem;
+            & > div {
+                cursor: pointer;
+                flex-grow: 1;
+                margin-top: 1em;
+                padding: 0.5em 1em;
+                border-radius: 0.5rem;
+                .icon {
+                    width: 2.4rem;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+            .facebook-auth {
+                background: $facebook;
+            }
+            .github-auth {
+                background: $github;
+            }
+            .google-auth {
+                background: $google;
+            }
+        }
+    }
+}
