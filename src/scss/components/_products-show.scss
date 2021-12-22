@@ -1,0 +1,24 @@
+.products-show {
+    margin-top: 3rem;
+    .products__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        li {
+            flex-basis: 15rem;
+            flex-grow: 1;
+            .thumbnail {
+                border-radius: 1rem;
+                min-height: 15rem;
+                object-fit: cover;
+            }
+            .name {
+                font-weight: bold;
+                margin-top: 0.5em;
+            }
+            .price {
+                margin-top: 0.2em;
+            }
+        }
+    }
+}

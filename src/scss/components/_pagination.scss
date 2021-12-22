@@ -1,8 +1,7 @@
 .pagination {
-    .container {
-        @include flex();
-        gap: 2rem;
-    }
+    margin-top: 3rem;
+    @include flex();
+    gap: 2rem;
     .controller {
         background: $black-color;
         border-radius: 0.5rem;
@@ -17,13 +16,17 @@
     }
     &__list {
         @include flex();
-        gap: 1rem;
-        padding: 0.8em 1.2em;
+        gap: 1.5rem;
+        padding: 0.5em 1.5em;
         border-radius: 0.5rem;
         border: 2px solid $black-color;
         li {
+            cursor: pointer;
             font-size: 1.5rem;
             font-weight: 600;
+            &[data-active="true"] {
+                color: $main-color;
+            }
         }
     }
 }

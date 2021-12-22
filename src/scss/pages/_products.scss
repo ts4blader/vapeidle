@@ -1,0 +1,12 @@
+.products-page {
+    margin: 3rem 0;
+    .top-panel {
+        @include flex(space-between, row);
+        .button {
+            padding: 0.7rem;
+            .icon {
+                width: 2rem;
+            }
+        }
+    }
+}

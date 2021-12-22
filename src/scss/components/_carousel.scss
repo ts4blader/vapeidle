@@ -17,11 +17,6 @@
             cursor: pointer;
             @include flex();
             gap: 0.5rem;
-            .text {
-            }
-            .icon {
-                width: 2.4rem;
-            }
         }
     }
     .glide__slides {
