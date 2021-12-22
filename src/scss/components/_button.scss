@@ -11,7 +11,7 @@
     }
     &[data-variant="bordered"] {
         background: $white-color;
-        color: $white-color;
+        color: $main-color;
         border: 2px solid $main-color;
     }
     &[data-variant="blacked"] {

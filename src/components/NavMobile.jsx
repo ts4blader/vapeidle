@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Icon from "./Icon";
+import Button from "./Button";
+import { useHistory } from "react-router-dom";
 
 export default function NavMobile() {
+  const history = useHistory();
+
   const [showMenu, setShowMenu] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
@@ -37,6 +41,16 @@ export default function NavMobile() {
           <li>Accessories</li>
         </ul>
         {/* Account Panel */}
+        <div className="account-panel">
+          <Button
+            text="Login"
+            variant="bordered"
+            action={() => {
+              history.push("/login");
+              setShowMenu(false);
+            }}
+          />
+        </div>
       </div>
     </div>
   );
