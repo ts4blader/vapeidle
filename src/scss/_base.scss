@@ -21,6 +21,9 @@ body {
 img {
     display: block;
     width: 100%;
+    &.icon {
+        width: 2.4rem;
+    }
 }
 input {
     min-width: 20rem;

@@ -1,0 +1,17 @@
+.dropdown {
+    @include flex(space-between, row);
+    gap: 0.5rem;
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+    border: 2px solid $black-color;
+    .text {
+    }
+    .icon {
+        width: 2.4rem;
+    }
+    &__list {
+        position: absolute;
+        li {
+        }
+    }
+}
