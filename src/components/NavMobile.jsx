@@ -35,7 +35,7 @@ export default function NavMobile() {
         </div>
         {/* Nav list */}
         <ul className="nav__list">
-          <li>Home</li>
+          <li onClick={() => history.push("/")}>Home</li>
           <li>Vape</li>
           <li>E-juice</li>
           <li>Accessories</li>
