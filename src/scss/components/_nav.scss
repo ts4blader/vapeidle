@@ -4,6 +4,7 @@
     background: $white-color;
     z-index: $float-layer;
     &__right {
+        cursor: pointer;
         .img {
             width: 10rem;
         }
