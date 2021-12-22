@@ -1,0 +1,29 @@
+.pagination {
+    .container {
+        @include flex();
+        gap: 2rem;
+    }
+    .controller {
+        background: $black-color;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        .icon {
+            width: 2rem;
+        }
+    }
+    &__start {
+        transform: rotate(-180deg);
+    }
+    &__list {
+        @include flex();
+        gap: 1rem;
+        padding: 0.8em 1.2em;
+        border-radius: 0.5rem;
+        border: 2px solid $black-color;
+        li {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    }
+}
