@@ -1,5 +1,8 @@
 .products-page {
     margin: 3rem 0;
+    .pagination {
+        margin-top: 3rem;
+    }
     .top-panel {
         @include flex(space-between, row);
         .button {

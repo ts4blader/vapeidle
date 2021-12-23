@@ -1,0 +1,51 @@
+.images-show {
+    .big {
+        img {
+            object-fit: cover;
+            height: 20rem;
+            border-radius: 1rem;
+        }
+    }
+    .small {
+        @include flex();
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+        img {
+            border-radius: 0.5rem;
+        }
+    }
+}
+
+.product-info {
+    .info {
+        .title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 0.5em;
+        }
+    }
+    .colors-info {
+        ul {
+            margin-top: 0.2em;
+            display: flex;
+            gap: 0.5em;
+            li {
+                @include size(2rem);
+                border-radius: 50%;
+            }
+        }
+    }
+    .quantity-info {
+        .pagination {
+            margin-top: 0.5rem;
+            justify-content: flex-start;
+            gap: 1rem;
+        }
+    }
+}
+.product-frame {
+    .button {
+        font-size: 1.8rem;
+        margin-top: 1em;
+    }
+}

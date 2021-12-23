@@ -9,6 +9,11 @@ const PRODUCTS = productData.map((item, index) => {
     slug: item.name.split(" ").join("-").toLowerCase(),
     categories: CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)],
     img: `https://picsum.photos/id/${index}/1920/1080`,
+    imgs: [
+      "https://fakeimg.pl/500x350/?text=Product",
+      "https://fakeimg.pl/500x350/?text=Placeholder",
+      "https://fakeimg.pl/500x350/?text=Image",
+    ],
   };
 
   return result;

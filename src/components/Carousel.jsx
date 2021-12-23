@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Icon from "./Icon";
+import { Link } from "react-router-dom";
 import Glide from "@glidejs/glide";
 
 export default function Carousel({
@@ -34,11 +35,13 @@ export default function Carousel({
             <ul className="glide__slides">
               {data.map((item) => (
                 <li className="glide__slide" key={item.name + id}>
-                  <img src={item.img} alt={item.name} />
-                  <div className="content">
-                    <div className="name">{item.name}</div>
-                    <div className="price">{item.price + "$"}</div>
-                  </div>
+                  <Link to={`/products/${item.slug}`}>
+                    <img src={item.img} alt={item.name} />
+                    <div className="content">
+                      <div className="name">{item.name}</div>
+                      <div className="price">{item.price + "$"}</div>
+                    </div>
+                  </Link>
                 </li>
               ))}
             </ul>
