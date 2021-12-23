@@ -25,7 +25,7 @@ const ProductInfo = ({ data }) => {
   const { name, price, colors } = data;
 
   const [counter, setCounter] = useState(1);
-  const [color, setColor] = useState(false);
+  const [color, setColor] = useState(0);
 
   return (
     <div className="product-info">
@@ -38,8 +38,12 @@ const ProductInfo = ({ data }) => {
       <div className="colors-info info">
         <div className="title">Colors</div>
         <ul className="colors">
-          {colors.map((item) => (
-            <li style={{ background: item }}></li>
+          {colors.map((item, index) => (
+            <li
+              onClick={() => setColor(index)}
+              data-active={color === index ? true : false}
+              style={{ background: item }}
+            ></li>
           ))}
         </ul>
       </div>

@@ -30,8 +30,19 @@
             display: flex;
             gap: 0.5em;
             li {
+                position: relative;
                 @include size(2rem);
                 border-radius: 50%;
+                &::after {
+                    content: "";
+                    @include abs-center();
+                    @include size(140%);
+                    border: 2px solid $black-color;
+                    border-radius: inherit;
+                }
+                &[data-active="false"]::after {
+                    display: none;
+                }
             }
         }
     }
