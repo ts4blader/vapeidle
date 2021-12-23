@@ -19,7 +19,7 @@ export default function Products() {
   }, [pages]);
 
   return (
-    <div className="products-page">
+    <main className="products-page">
       <div className="container">
         <div className="top-panel">
           <Dropdown text="Sort">
@@ -39,6 +39,6 @@ export default function Products() {
           length={PAGINATION_LENGTH}
         />
       </div>
-    </div>
+    </main>
   );
 }

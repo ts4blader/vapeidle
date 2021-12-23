@@ -16,7 +16,7 @@ import { TREND_OPTIONS, CAROUSEL_OPTIONS } from "../constants/glide-options";
 console.log(TREND_VAPE);
 export default function Home() {
   return (
-    <div className="home-page">
+    <main className="home-page">
       <Hero data={HEADER_HERO.data} labels={HEADER_HERO.labels}>
         <img src="https://picsum.photos/id/0/500" alt="placeholder" />
       </Hero>
@@ -55,11 +55,13 @@ export default function Home() {
       </section>
 
       {/* Follow section */}
-      <Hero data={FOLLOW_HERO.data} labels={FOLLOW_HERO.labels}>
-        <video controls>
-          <source src="/videos/roll_everyone.mp4" type="video/mp4" />
-        </video>
-      </Hero>
-    </div>
+      <section className="follow-section">
+        <Hero data={FOLLOW_HERO.data} labels={FOLLOW_HERO.labels}>
+          <video controls>
+            <source src="/videos/roll_everyone.mp4" type="video/mp4" />
+          </video>
+        </Hero>
+      </section>
+    </main>
   );
 }

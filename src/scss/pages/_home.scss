@@ -1,7 +1,6 @@
 .home-page {
     section {
         margin-top: 3rem;
-        margin-bottom: 3rem;
     }
     .hero {
         img {
@@ -10,7 +9,7 @@
             height: 30rem;
         }
     }
-    .hero:nth-of-type(2) {
+    .follow-section {
         margin-bottom: 3rem;
         .hero__labels {
             display: none;
