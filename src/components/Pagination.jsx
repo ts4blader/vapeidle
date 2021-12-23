@@ -6,7 +6,7 @@ export default function Pagination({ active, length, action }) {
 
   return (
     <div className="pagination">
-      <div className="pagination__start controller">
+      <div className="pagination__start controller" onClick={() => action(1)}>
         <Icon src="double_caret.svg" alt="start" />
       </div>
       <ul className="pagination__list">
@@ -22,7 +22,10 @@ export default function Pagination({ active, length, action }) {
           );
         })}
       </ul>
-      <div className="pagination__end controller">
+      <div
+        className="pagination__end controller"
+        onClick={() => action(length)}
+      >
         <Icon src="double_caret.svg" alt="end" />
       </div>
     </div>
