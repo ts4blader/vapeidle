@@ -10,9 +10,9 @@ const PRODUCTS = productData.map((item, index) => {
     categories: CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)],
     img: `https://picsum.photos/id/${index}/1920/1080`,
     imgs: [
-      "https://fakeimg.pl/500x350/?text=Product",
-      "https://fakeimg.pl/500x350/?text=Placeholder",
-      "https://fakeimg.pl/500x350/?text=Image",
+      `https://picsum.photos/id/${index}/1920/1080`,
+      `https://picsum.photos/id/${index + 1}/1920/1080`,
+      `https://picsum.photos/id/${index + 2}/1920/1080`,
     ],
   };
 
