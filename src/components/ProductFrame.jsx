@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Icon from "./Icon";
 import Button from "./Button";
 
 const ImagesShow = ({ imgs, slug }) => {
   const [select, setSelect] = useState(imgs[0]);
+
+  useEffect(() => {
+    setSelect(imgs[0]);
+  }, [imgs]);
 
   return (
     <div className="images-show">
@@ -12,7 +16,12 @@ const ImagesShow = ({ imgs, slug }) => {
       </div>
       <div className="small">
         {imgs.map((item) => (
-          <div className="preview" onClick={() => setSelect(item)}>
+          <div
+            key={`small-${item}`}
+            data-active={select === item ? true : false}
+            className="preview"
+            onClick={() => setSelect(item)}
+          >
             <img src={item} alt="placeholder" />
           </div>
         ))}
@@ -40,6 +49,7 @@ const ProductInfo = ({ data }) => {
         <ul className="colors">
           {colors.map((item, index) => (
             <li
+              key={`${item}-${index}`}
               onClick={() => setColor(index)}
               data-active={color === index ? true : false}
               style={{ background: item }}

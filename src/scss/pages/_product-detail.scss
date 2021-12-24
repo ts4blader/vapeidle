@@ -1,2 +1,54 @@
-.product-detail {
+.product-detail-page {
+    .product-blog {
+        .title {
+            font-family: $sub-font;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 1em;
+        }
+        .content {
+            .bar {
+                margin-top: 0.5rem;
+                height: 3px;
+                margin-left: auto;
+                margin-right: auto;
+                background: $black-color;
+                border-radius: 0.5rem;
+            }
+            h3 {
+                margin-top: 1em;
+                font-weight: bold;
+                font-size: 2rem;
+            }
+            p {
+                margin-top: 1em;
+                text-align: justify;
+            }
+        }
+        .relative-products {
+            .title {
+                text-align: left;
+            }
+            .relative__item {
+                margin-top: 2rem;
+                position: relative;
+                img {
+                    filter: brightness(0.7);
+                    border-radius: 1rem;
+                }
+                .basic {
+                    position: absolute;
+                    padding: 1em;
+                    bottom: 0;
+                    left: 0;
+                    color: $white-color;
+                    .name {
+                        font-size: 2rem;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
 }
