@@ -1,33 +1,41 @@
+import { useEffect } from "react";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [location]);
+
   return (
     <div className="app">
-      <Router>
-        <Nav />
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/login" exact>
-            <Login />
-          </Route>
-          <Route path="/products" exact>
-            <Products />
-          </Route>
-          <Route path="/products/:slug" exact>
-            <ProductDetail />
-          </Route>
-        </Switch>
+      <Nav />
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/login" exact>
+          <Login />
+        </Route>
+        <Route path="/products" exact>
+          <Products />
+        </Route>
+        <Route path="/products/:slug" exact>
+          <ProductDetail />
+        </Route>
+      </Switch>
 
-        <Footer />
-      </Router>
+      <Footer />
     </div>
   );
 }
