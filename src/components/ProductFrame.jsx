@@ -36,6 +36,12 @@ const ProductInfo = ({ data }) => {
   const [counter, setCounter] = useState(1);
   const [color, setColor] = useState(0);
 
+  //* Reset
+  useEffect(() => {
+    setCounter(1);
+    setColor(0);
+  }, [data]);
+
   return (
     <div className="product-info">
       {/* Basic */}
