@@ -24,7 +24,9 @@ $float: 3;
         }
         &__slide {
             position: relative;
-            color: $white-color;
+            a {
+                color: $white-color;
+            }
             img {
                 object-fit: cover;
                 min-height: 30rem;
