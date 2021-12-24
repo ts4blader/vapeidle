@@ -8,6 +8,7 @@ import ProductDetail from "./pages/ProductDetail";
 import { Switch, Route, useLocation } from "react-router-dom";
 
 function App() {
+  //* On route change
   const location = useLocation();
   useEffect(() => {
     window.scrollTo({
@@ -16,6 +17,7 @@ function App() {
       behavior: "smooth",
     });
   }, [location]);
+  //* End On route change
 
   return (
     <div className="app">
