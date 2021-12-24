@@ -12,11 +12,18 @@ import {
   FOLLOW_HERO,
 } from "../constants/home";
 import { TREND_OPTIONS, CAROUSEL_OPTIONS } from "../constants/glide-options";
+import { useHistory } from "react-router-dom";
 
 export default function Home() {
+  const history = useHistory();
+
   return (
     <main className="home-page">
-      <Hero data={HEADER_HERO.data} labels={HEADER_HERO.labels}>
+      <Hero
+        action={() => history.push("/products/axis-axis")}
+        data={HEADER_HERO.data}
+        labels={HEADER_HERO.labels}
+      >
         <img src="https://picsum.photos/id/0/500" alt="placeholder" />
       </Hero>
       {/* Trend Vape Section */}
@@ -55,7 +62,11 @@ export default function Home() {
 
       {/* Follow section */}
       <section className="follow-section">
-        <Hero data={FOLLOW_HERO.data} labels={FOLLOW_HERO.labels}>
+        <Hero
+          action={() => window.open("https://www.youtube.com/", "_blank")}
+          data={FOLLOW_HERO.data}
+          labels={FOLLOW_HERO.labels}
+        >
           <video controls>
             <source src="/videos/roll_everyone.mp4" type="video/mp4" />
           </video>
