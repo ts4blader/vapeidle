@@ -13,7 +13,6 @@ import {
 } from "../constants/home";
 import { TREND_OPTIONS, CAROUSEL_OPTIONS } from "../constants/glide-options";
 
-console.log(TREND_VAPE);
 export default function Home() {
   return (
     <main className="home-page">
