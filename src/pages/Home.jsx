@@ -39,6 +39,7 @@ export default function Home() {
           data={VAPE}
           id="vape-carousel"
           options={CAROUSEL_OPTIONS}
+          action={() => history.push("/products?category=vape")}
         />
       </section>
       <section className="ejuice-carousel">
@@ -48,6 +49,7 @@ export default function Home() {
           data={EJUICE}
           id="ejuice-carousel"
           options={CAROUSEL_OPTIONS}
+          action={() => history.push("/products?category=e-juice")}
         />
       </section>
       <section className="accessories-carousel">
@@ -57,6 +59,7 @@ export default function Home() {
           data={ACCESSORIES}
           id="accessories-carousel"
           options={CAROUSEL_OPTIONS}
+          action={() => history.push("/products?category=accessories")}
         />
       </section>
 

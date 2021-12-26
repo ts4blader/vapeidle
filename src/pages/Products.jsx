@@ -1,22 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Pagination from "../components/Pagination";
 import ProductsShow from "../components/ProductsShow";
 import Button from "../components/Button";
 import Dropdown from "../components/Dropdown";
+import useQuery from "../libs/useQuery";
 import { PRODUCTS } from "../constants/products";
 
 const ITEM_PER_PAGE = 8;
-const PAGINATION_LENGTH = parseInt(PRODUCTS.length / ITEM_PER_PAGE) + 1;
 
 export default function Products() {
   const [pages, setPages] = useState(1);
   const [products, setProducts] = useState(PRODUCTS);
+  const [displayProducts, setDisplayProducts] = useState([]);
+  const query = useQuery();
+
+  const paginationLength = useMemo(() => {
+    return Math.ceil(products.length / ITEM_PER_PAGE);
+  }, [products]);
 
   useEffect(() => {
-    setProducts(
-      PRODUCTS.slice((pages - 1) * ITEM_PER_PAGE, pages * ITEM_PER_PAGE)
+    setDisplayProducts(
+      products.slice((pages - 1) * ITEM_PER_PAGE, pages * ITEM_PER_PAGE)
     );
   }, [pages]);
+
+  //* Filter
+  useEffect(() => {
+    let result = PRODUCTS;
+    if (query.get("category"))
+      result = result.filter(
+        (item) => item.categories === query.get("category")
+      );
+    if (query.get("min"))
+      result = result.filter((item) => item.price >= query.get("min"));
+    if (query.get("max"))
+      result = result.filter((item) => item.price <= query.get("max"));
+
+    console.log(result);
+    setProducts(result);
+  }, [query]);
 
   return (
     <main className="products-page">
@@ -32,11 +54,11 @@ export default function Products() {
             <Button img="filter" variant="blacked" />
           </div>
         </div>
-        <ProductsShow data={products} />
+        <ProductsShow data={displayProducts} />
         <Pagination
           action={setPages}
           active={pages}
-          length={PAGINATION_LENGTH}
+          length={paginationLength}
         />
       </div>
     </main>
