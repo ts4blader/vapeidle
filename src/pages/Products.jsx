@@ -36,7 +36,6 @@ export default function Products() {
     if (query.get("max"))
       result = result.filter((item) => item.price <= query.get("max"));
 
-    console.log(result);
     setProducts(result);
   }, [query]);
 
