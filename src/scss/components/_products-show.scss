@@ -1,5 +1,8 @@
 .products-show {
     margin-top: 3rem;
+    a {
+        color: $black-color;
+    }
     .products__list {
         display: flex;
         flex-wrap: wrap;
