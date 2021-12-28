@@ -3,16 +3,14 @@ import Pagination from "../components/Pagination";
 import ProductsShow from "../components/ProductsShow";
 import Button from "../components/Button";
 import Dropdown from "../components/Dropdown";
-import useQuery from "../libs/useQuery";
-import { PRODUCTS } from "../constants/products";
+import useFilter from "../libs/useFilter";
 
 const ITEM_PER_PAGE = 8;
 
 export default function Products() {
   const [pages, setPages] = useState(1);
-  const [products, setProducts] = useState(PRODUCTS);
   const [displayProducts, setDisplayProducts] = useState([]);
-  const query = useQuery();
+  const products = useFilter();
 
   const paginationLength = useMemo(() => {
     return Math.ceil(products.length / ITEM_PER_PAGE);
@@ -23,21 +21,6 @@ export default function Products() {
       products.slice((pages - 1) * ITEM_PER_PAGE, pages * ITEM_PER_PAGE)
     );
   }, [pages]);
-
-  //* Filter
-  useEffect(() => {
-    let result = PRODUCTS;
-    if (query.get("category"))
-      result = result.filter(
-        (item) => item.categories === query.get("category")
-      );
-    if (query.get("min"))
-      result = result.filter((item) => item.price >= query.get("min"));
-    if (query.get("max"))
-      result = result.filter((item) => item.price <= query.get("max"));
-
-    setProducts(result);
-  }, [query]);
 
   return (
     <main className="products-page">
