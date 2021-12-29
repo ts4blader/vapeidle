@@ -8,6 +8,23 @@
     padding: 1em;
     border-radius: 0.5rem;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.25);
+    &[data-drag="true"] {
+        .tooltip {
+            opacity: 1 !important;
+            transform: translate(-50%, 0%) scale(1) !important;
+        }
+    }
+    .save-btn {
+        border-radius: 0.5rem;
+        border: 2px solid currentColor;
+        max-width: 20rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2em;
+        padding: 0.5em 1em;
+        cursor: pointer;
+    }
     &__entry {
         margin-top: 1em;
         &:first-child {
@@ -51,18 +68,19 @@
                 margin-top: 0.5em;
                 padding-right: 1rem;
                 position: relative;
+                .price-bar {
+                    pointer-events: none;
+                    background: $main-color;
+                    position: absolute;
+                    height: 100%;
+                }
                 .controller {
                     @include abs-center(y);
                     @include size(1rem);
                     background: $main-color;
                     border-radius: 0.3rem;
-                    &[data-drag="true"] {
-                        .tooltip {
-                            opacity: 1;
-                            transform: translateY(0%) scale(1);
-                        }
-                    }
                     .tooltip {
+                        font-weight: bold;
                         @include abs-center(x);
                         pointer-events: none;
                         bottom: 150%;
@@ -70,9 +88,9 @@
                         font-size: 1rem;
                         padding: 0.5em 1em;
                         border-radius: 0.2rem;
-                        opacity: 0;
                         transition: 0.2s ease;
-                        transform: translateY(100%) scale(0);
+                        opacity: 0;
+                        transform: translate(-50%, 100%) scale(0);
                     }
                 }
             }

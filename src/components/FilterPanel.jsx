@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import { CATEGORIES } from "../constants/base";
 
 const SPACER = 20;
+const MIN_PRICE = 0;
+const MAX_PRICE = 2000;
 
 export default function FilterPanel() {
   const mainBar = useRef(null);
@@ -9,7 +11,6 @@ export default function FilterPanel() {
   const [category, setCategory] = useState(CATEGORIES[0]);
 
   const [min, setMin] = useState(0);
-
   const [max, setMax] = useState(100);
 
   const [draggable, setDraggable] = useState(false);
@@ -30,6 +31,7 @@ export default function FilterPanel() {
 
   return (
     <div
+      data-drag={draggable}
       className="filter-panel"
       onMouseMove={dragHandle}
       onMouseUp={() => setDraggable(false)}
@@ -54,12 +56,15 @@ export default function FilterPanel() {
         <div className="title">Price</div>
         <div className="range">
           <div className="price-row">
-            <div className="min-price">0$</div>
-            <div className="max-price">2000$</div>
+            <div className="min-price">{MIN_PRICE}</div>
+            <div className="max-price">{MAX_PRICE}</div>
           </div>
           <div className="main-bar" ref={mainBar}>
             {/* Price bar */}
-            <div className="price-bar"></div>
+            <div
+              className="price-bar"
+              style={{ left: `${min}%`, width: `${max - min}%` }}
+            ></div>
             {/* Min controller */}
             <div
               data-drag={draggable}
@@ -67,20 +72,25 @@ export default function FilterPanel() {
               onMouseDown={(e) => setDraggable(true)}
               style={{ left: `${min}%` }}
             >
-              <div className="tooltip">{Math.ceil((min * 2000) / 100)}</div>
+              <div className="tooltip">
+                {Math.ceil((min * MAX_PRICE) / 100)}
+              </div>
             </div>
             {/* Max controller */}
             <div
-              data-drag={draggable}
               className="max-controller controller"
               onMouseDown={(e) => setDraggable(true)}
               style={{ left: `${max - 3}%` }}
             >
-              <div className="tooltip">{Math.ceil((max * 2000) / 100)}</div>
+              <div className="tooltip">
+                {Math.ceil((max * MAX_PRICE) / 100)}
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div className="save-btn">Save</div>
     </div>
   );
 }
