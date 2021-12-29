@@ -30,7 +30,7 @@
 
 @mixin size($width, $height: $width) {
     width: $width;
-    min-height: $height;
+    height: $height;
 }
 
 //media controls

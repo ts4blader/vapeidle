@@ -1,0 +1,81 @@
+.filter-panel {
+    position: absolute;
+    width: MIN(80vw, 40rem);
+    top: 120%;
+    right: 0;
+    background: $black-color;
+    color: $white-color;
+    padding: 1em;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.25);
+    &__entry {
+        margin-top: 1em;
+        &:first-child {
+            margin-top: 0;
+        }
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .options {
+            li {
+                cursor: pointer;
+                display: flex;
+                gap: 1rem;
+                margin-top: 0.5em;
+                &[data-active="true"] {
+                    .square {
+                        background: $main-color;
+                    }
+                }
+                .square {
+                    background: $white-color;
+                    @include size(2rem);
+                    border-radius: 0.5rem;
+                }
+                .label {
+                    text-transform: capitalize;
+                }
+            }
+        }
+        .range {
+            margin-top: 0.5em;
+            .price-row {
+                @include flex(space-between, row);
+            }
+            .main-bar {
+                width: 100%;
+                height: 0.5rem;
+                background: $white-color;
+                border-radius: 0.5rem;
+                margin-top: 0.5em;
+                padding-right: 1rem;
+                position: relative;
+                .controller {
+                    @include abs-center(y);
+                    @include size(1rem);
+                    background: $main-color;
+                    border-radius: 0.3rem;
+                    &[data-drag="true"] {
+                        .tooltip {
+                            opacity: 1;
+                            transform: translateY(0%) scale(1);
+                        }
+                    }
+                    .tooltip {
+                        @include abs-center(x);
+                        pointer-events: none;
+                        bottom: 150%;
+                        background: $main-color;
+                        font-size: 1rem;
+                        padding: 0.5em 1em;
+                        border-radius: 0.2rem;
+                        opacity: 0;
+                        transition: 0.2s ease;
+                        transform: translateY(100%) scale(0);
+                    }
+                }
+            }
+        }
+    }
+}
