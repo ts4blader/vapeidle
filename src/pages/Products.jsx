@@ -11,6 +11,7 @@ const ITEM_PER_PAGE = 8;
 export default function Products() {
   const [pages, setPages] = useState(1);
   const [displayProducts, setDisplayProducts] = useState([]);
+  const [showFilter, setShowFilter] = useState(false);
   const products = useFilter();
 
   const paginationLength = useMemo(() => {
@@ -21,7 +22,7 @@ export default function Products() {
     setDisplayProducts(
       products.slice((pages - 1) * ITEM_PER_PAGE, pages * ITEM_PER_PAGE)
     );
-  }, [pages]);
+  }, [pages, products]);
 
   return (
     <main className="products-page">
@@ -33,10 +34,18 @@ export default function Products() {
             <li>By Date</li>
             <li>By Trend</li>
           </Dropdown>
-          <div className="filter">
-            <Button img="filter" variant="blacked" />
+          <button
+            className="filter"
+            data-filter={showFilter}
+            onBlur={() => setShowFilter(false)}
+          >
+            <Button
+              img="filter"
+              variant={showFilter ? "origin" : "blacked"}
+              action={() => setShowFilter((state) => !state)}
+            />
             <FilterPanel />
-          </div>
+          </button>
         </div>
         <ProductsShow data={displayProducts} />
         <Pagination

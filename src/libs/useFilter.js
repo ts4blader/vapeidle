@@ -3,7 +3,7 @@ import { PRODUCTS } from "../constants/products";
 import useQuery from "./useQuery";
 
 export default function useFilter() {
-  const [data, setData] = useState(PRODUCTS);
+  const [data, setData] = useState([]);
   const query = useQuery();
 
   useEffect(() => {
