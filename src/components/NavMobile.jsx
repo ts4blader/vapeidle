@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Icon from "./Icon";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
+import { CATEGORIES } from "../constants/base";
 
 export default function NavMobile() {
   const history = useHistory();
@@ -35,10 +36,18 @@ export default function NavMobile() {
         </div>
         {/* Nav list */}
         <ul className="nav__list">
-          <li onClick={() => history.push("/")}>Home</li>
-          <li>Vape</li>
-          <li>E-juice</li>
-          <li>Accessories</li>
+          <li onClick={() => history.push("/")}>home</li>
+          {CATEGORIES.map((item) => (
+            <li
+              key={`${item}_nav-mobile`}
+              onClick={() => {
+                history.push(`/products?category=${item}`);
+                setShowMenu(false);
+              }}
+            >
+              {item}
+            </li>
+          ))}
         </ul>
         {/* Account Panel */}
         <div className="account-panel">
