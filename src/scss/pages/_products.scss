@@ -8,10 +8,16 @@
             position: relative;
             border: none;
             background: none;
+            .button {
+                background: $black-color;
+            }
             .filter-panel {
                 display: none;
             }
             &:focus-within {
+                .button {
+                    background: $main-color;
+                }
                 .filter-panel {
                     display: initial;
                 }
