@@ -1,5 +1,7 @@
 import React from "react";
 import Icon from "./Icon";
+import { Link } from "react-router-dom";
+import { CATEGORIES } from "../constants/base";
 
 export default function Footer() {
   return (
@@ -9,9 +11,11 @@ export default function Footer() {
         <div className="pillar">
           <div className="title">Categories</div>
           <ul className="categories">
-            <li>Vape</li>
-            <li>E-juice</li>
-            <li>Accessories</li>
+            {CATEGORIES.map((item) => (
+              <li key={`${item}_footer`}>
+                <Link to={`/products?category=${item}`}>{item}</Link>
+              </li>
+            ))}
           </ul>
         </div>
         {/* Social pillar */}

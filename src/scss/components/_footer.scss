@@ -11,20 +11,22 @@
     .pillar {
         flex-basis: 15rem;
         flex-grow: 1;
+        text-transform: capitalize;
         .title {
             font-size: 1.8rem;
             font-weight: bold;
         }
         ul {
             margin-top: 0.3em;
-            a {
-                color: inherit;
-                text-decoration: underline;
+            &.contact {
+                a {
+                    text-transform: none;
+                    text-decoration: underline;
+                }
             }
             &.social {
                 li {
                     & > a {
-                        text-decoration: none;
                         @include flex(flex-start, row);
                         gap: 0.5rem;
                     }
