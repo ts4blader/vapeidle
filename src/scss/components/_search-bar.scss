@@ -1,0 +1,11 @@
+.search-bar {
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid $black-color;
+    border-radius: 0.5rem;
+    padding: 0.5em 1em;
+    @include flex(center, row);
+    input {
+        color: $main-color;
+    }
+}

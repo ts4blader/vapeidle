@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Icon from "./Icon";
+import SearchBar from "./SearchBar";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
 import { CATEGORIES } from "../constants/base";
@@ -30,10 +31,7 @@ export default function NavMobile() {
       />
       <div className="menu-content">
         {/* Search Bar */}
-        <div className="search-bar">
-          <input type="text" placeholder="Search" />
-          <Icon src="search.svg" alt="search" />
-        </div>
+        <SearchBar />
         {/* Nav list */}
         <ul className="nav__list">
           <li onClick={() => history.push("/")}>home</li>

@@ -32,17 +32,6 @@
         transition: 0.3s ease;
         padding: 2rem 0;
     }
-    .search-bar {
-        width: 80%;
-        margin: 0 auto;
-        border: 2px solid $black-color;
-        border-radius: 0.5rem;
-        padding: 0.5em 1em;
-        @include flex(center, row);
-        input {
-            color: $main-color;
-        }
-    }
     .nav__list {
         text-align: center;
         font-size: 2rem;

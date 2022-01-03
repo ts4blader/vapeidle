@@ -4,9 +4,7 @@ import reducer from "./Reducer";
 const StoreContext = createContext(null);
 // Initial state
 const INITIAL_STATE = {
-  showSignUpForm: false,
   searchTerm: "",
-  showPlayer: false,
 };
 
 function Store({ children }) {
@@ -21,10 +19,10 @@ function Store({ children }) {
 
 const useStore = () => useContext(StoreContext);
 const useState = () => {
-    return useContext(StoreContext)[0];
+  return useContext(StoreContext)[0];
 };
 const useDispatch = () => {
-    return useContext(StoreContext)[1];
+  return useContext(StoreContext)[1];
 };
 
 export { useStore, useState, useDispatch, Store };
