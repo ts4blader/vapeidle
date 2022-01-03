@@ -59,7 +59,7 @@ export default function FilterPanel() {
         <ul className="options">
           <li
             key="all-categories"
-            onClick={() => setCategory("")}
+            onClick={() => setCategory("all")}
             data-active={"all" === category ? true : false}
           >
             <div className="square"></div>

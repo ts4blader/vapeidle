@@ -8,10 +8,14 @@ export default function useFilter() {
 
   useEffect(() => {
     let result = PRODUCTS;
-    if (query.get("category"))
-      result = result.filter(
-        (item) => item.categories === query.get("category")
-      );
+    if (query.get("category")) {
+      //* Check all categories
+      if (query.get("category") !== "all") {
+        result = result.filter(
+          (item) => item.categories === query.get("category")
+        );
+      }
+    }
     if (query.get("min"))
       result = result.filter((item) => item.price >= query.get("min"));
     if (query.get("max"))
