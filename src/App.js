@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Products from "./pages/Products";
+import NotFound from "./pages/404";
 import ProductDetail from "./pages/ProductDetail";
 import { Switch, Route, useLocation } from "react-router-dom";
 
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/products/:slug" exact>
           <ProductDetail />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
 
