@@ -1,4 +1,4 @@
-import { useStore, useState, useDispatch, Store } from "./Store";
+import { useStore, useSelector, useDispatch, Store } from "./Store";
 import { ACTION } from "./Action";
 
-export { useStore, useState, useDispatch, Store, ACTION };
+export { useStore, useSelector, useDispatch, Store, ACTION };

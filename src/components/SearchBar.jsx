@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Icon from "./Icon";
-import { useDispatch, ACTION } from "../store";
+import { useHistory } from "react-router-dom";
 
 export default function SearchBar() {
-  const dispatch = useDispatch();
+  const history = useHistory();
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
@@ -18,7 +18,8 @@ export default function SearchBar() {
         src="search.svg"
         alt="search"
         onClick={() => {
-          dispatch({ type: ACTION.SET_SEARCH_TERM, payload: searchTerm });
+          if (searchTerm)
+            history.push(`/products?s=${searchTerm.toLowerCase()}`);
           setSearchTerm("");
         }}
       />

@@ -8,18 +8,28 @@ export default function useFilter() {
 
   useEffect(() => {
     let result = PRODUCTS;
-    if (query.get("category")) {
+    //* URL Search param
+    let search = query.get("s");
+    let category = query.get("category");
+    let min = query.get("min");
+    let max = query.get("max");
+    // SearchTerm
+    if (search) {
+      result = result.filter((item) =>
+        item.name.toLowerCase().includes(search)
+      );
+    }
+    // Categories
+    if (category) {
       //* Check all categories
-      if (query.get("category") !== "all") {
-        result = result.filter(
-          (item) => item.categories === query.get("category")
-        );
+      if (category !== "all") {
+        result = result.filter((item) => item.categories === category);
       }
     }
-    if (query.get("min"))
-      result = result.filter((item) => item.price >= query.get("min"));
-    if (query.get("max"))
-      result = result.filter((item) => item.price <= query.get("max"));
+    // Min price
+    if (min) result = result.filter((item) => item.price >= min);
+    //Max price
+    if (max) result = result.filter((item) => item.price <= max);
 
     setData(result);
   }, [query]);

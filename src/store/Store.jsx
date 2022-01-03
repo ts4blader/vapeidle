@@ -18,11 +18,11 @@ function Store({ children }) {
 }
 
 const useStore = () => useContext(StoreContext);
-const useState = () => {
+const useSelector = () => {
   return useContext(StoreContext)[0];
 };
 const useDispatch = () => {
   return useContext(StoreContext)[1];
 };
 
-export { useStore, useState, useDispatch, Store };
+export { useStore, useSelector, useDispatch, Store };
