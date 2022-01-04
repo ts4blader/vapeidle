@@ -1,0 +1,15 @@
+.notification {
+    p {
+        position: fixed;
+        padding: 0.5em 1em;
+        background: $main-color;
+        color: $white-color;
+        font-weight: bold;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 1rem 0 rgba($color: $black-color, $alpha: 0.25);
+        top: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: $modal-layer;
+    }
+}

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import Notification from "./components/Notification";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Products from "./pages/Products";
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="app">
       <Nav />
+      <Notification />
       <Switch>
         <Route path="/" exact>
           <Home />

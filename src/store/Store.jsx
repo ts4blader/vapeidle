@@ -5,6 +5,7 @@ const StoreContext = createContext(null);
 // Initial state
 const INITIAL_STATE = {
   searchTerm: "",
+  notificationMessage: "",
 };
 
 function Store({ children }) {

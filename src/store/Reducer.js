@@ -6,6 +6,10 @@ const reducer = (state, action) => {
       return { ...state, searchTerm: action.payload };
     case ACTION.RESET_SEARCH_TERM:
       return { ...state, searchTerm: "" };
+    case ACTION.SET_NOTIFICATION_MESSAGE:
+      return { ...state, notificationMessage: action.payload };
+    case ACTION.RESET_NOTIFICATION_MESSAGE:
+      return { ...state, notificationMessage: "" };
     default:
       alert("Something went wrong! Not in action");
       return state;
