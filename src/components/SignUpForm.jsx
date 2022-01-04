@@ -4,6 +4,7 @@ import Button from "./Button";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
+import useAuth from "../libs/useAuth";
 
 const schema = yup
   .object({
@@ -23,6 +24,8 @@ const schema = yup
   .required();
 
 export default function SignUpForm({ action }) {
+  const { createUser } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -31,6 +34,8 @@ export default function SignUpForm({ action }) {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (data) => {
+    createUser(data.email, data.password, data.displayName);
+
     console.log(data);
     reset();
   };
