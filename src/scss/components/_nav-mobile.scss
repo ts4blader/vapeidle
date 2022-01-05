@@ -5,22 +5,12 @@
             opacity: 0;
         }
     }
-    &[data-dark-mode="true"] {
-        .toggle-dark-mode {
-            background: $main-color;
-            border-radius: 0.5rem;
-            padding: 0.3rem;
-        }
-    }
     @include flex();
     gap: 1rem;
     padding: 1.5rem 0;
     .icon {
         cursor: pointer;
         width: 3rem;
-        &.toggle-dark-mode {
-            transition: 0.2s ease;
-        }
     }
     .menu-content {
         background: $white-color;

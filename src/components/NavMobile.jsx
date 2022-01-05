@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Icon from "./Icon";
+import Badge from "./Badge";
 import SearchBar from "./SearchBar";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
@@ -11,21 +12,16 @@ export default function NavMobile() {
   const { user, logOut } = useAuth();
 
   const [showMenu, setShowMenu] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div
-      className="nav__left--mobile"
-      data-show-menu={showMenu}
-      data-dark-mode={darkMode}
-    >
+    <div className="nav__left--mobile" data-show-menu={showMenu}>
       {/* Controllers */}
-      <Icon
-        src={darkMode ? "moon-dark.svg" : "moon.svg"}
-        alt="dark-mode"
-        className="toggle-dark-mode"
-        onClick={() => setDarkMode((state) => !state)}
-      />
+      {user && (
+        <div className="cart">
+          <Icon src="cart.svg" alt="my-cart" />
+          <Badge text={user.cart?.length} />
+        </div>
+      )}
       <Icon
         src={showMenu ? "cross.svg" : "menu.svg"}
         alt="menu"

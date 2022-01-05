@@ -1,0 +1,22 @@
+.badge {
+    font-size: 1.2rem;
+    position: absolute;
+    font-weight: bold;
+    color: $white-color;
+    background: $main-color;
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+    &[data-variant="blacked"] {
+        background: $black-color;
+    }
+    &[data-variant="bordered"] {
+        background: none;
+        color: $main-color;
+        border: 1px solid currentColor;
+    }
+    &[data-variant="blacked-bordered"] {
+        background: none;
+        color: $black-color;
+        border: 1px solid currentColor;
+    }
+}
