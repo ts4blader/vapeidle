@@ -6,22 +6,35 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { useDispatch, ACTION } from "../store";
 import { useHistory } from "react-router-dom";
 import { app } from "./useFirebase";
+import {
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  GithubAuthProvider,
+} from "firebase/auth";
+
+const google = new GoogleAuthProvider();
+const facebook = new FacebookAuthProvider();
+const github = new GithubAuthProvider();
 
 export default function useAuth() {
   const dispatch = useDispatch();
 
   const history = useHistory();
 
-  const [auth, setAuth] = useState(null);
-  let AUTH = getAuth(app);
+  const auth = getAuth(app);
+  const [user, setUser] = useState(auth.currentUser);
 
   useEffect(() => {
-    setAuth(AUTH);
-  }, [AUTH]);
+    onAuthStateChanged(auth, (newUser) => {
+      if (newUser) setUser(newUser);
+      else setUser(null);
+    });
+  }, []);
 
   //* Create user with mail and password
 
@@ -127,5 +140,7 @@ export default function useAuth() {
       });
   };
 
-  return { auth, createUser, signIn, signInWithProvider, logOut };
+  return { auth, user, createUser, signIn, signInWithProvider, logOut };
 }
+
+export { google, facebook, github };

@@ -4,9 +4,11 @@ import SearchBar from "./SearchBar";
 import Button from "./Button";
 import { useHistory } from "react-router-dom";
 import { CATEGORIES } from "../constants/base";
+import useAuth from "../libs/useAuth";
 
 export default function NavMobile() {
   const history = useHistory();
+  const { user, logOut } = useAuth();
 
   const [showMenu, setShowMenu] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -49,14 +51,25 @@ export default function NavMobile() {
         </ul>
         {/* Account Panel */}
         <div className="account-panel">
-          <Button
-            text="Login"
-            variant="bordered"
-            action={() => {
-              history.push("/login");
-              setShowMenu(false);
-            }}
-          />
+          {user ? (
+            <div className="account container">
+              <div className="avatar">
+                <Icon src={`user/${user.photoURL}`} alt="avatar" />
+              </div>
+              <div className="display-name">{user.displayName}</div>
+              <div className="logout-btn" onClick={logOut}>
+                <Icon src="logout.svg" alt="logout" />
+              </div>
+            </div>
+          ) : (
+            <Button
+              text="Login"
+              action={() => {
+                history.push("/login");
+                setShowMenu(false);
+              }}
+            />
+          )}
         </div>
       </div>
     </div>

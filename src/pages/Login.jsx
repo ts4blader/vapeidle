@@ -3,7 +3,7 @@ import SignInForm from "../components/SignInForm";
 import SignUpForm from "../components/SignUpForm";
 
 export default function Login() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   return (
     <main className="login-page">

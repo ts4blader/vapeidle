@@ -5,7 +5,7 @@ import Icon from "./Icon";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import useAuth from "../libs/useAuth";
+import useAuth, { google, facebook, github } from "../libs/useAuth";
 
 const schema = yup
   .object({
@@ -28,13 +28,12 @@ export default function SignInForm({ action }) {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  // Auth
-  const { signIn } = useAuth();
+  //* Auth
+  const { signIn, signInWithProvider } = useAuth();
 
+  //* Submit handler
   const onSubmit = (data) => {
     signIn(data.email, data.password);
-
-    console.log(data);
     reset();
   };
 
@@ -70,13 +69,22 @@ export default function SignInForm({ action }) {
           <span onClick={action}> Register</span>
         </div>
         <div className="auth-section">
-          <div className="facebook-auth">
+          <div
+            className="facebook-auth"
+            onClick={() => signInWithProvider(facebook)}
+          >
             <Icon src="facebook-auth.svg" />
           </div>
-          <div className="github-auth">
+          <div
+            className="github-auth"
+            onClick={() => signInWithProvider(github)}
+          >
             <Icon src="github.svg" />
           </div>
-          <div className="google-auth">
+          <div
+            className="google-auth"
+            onClick={() => signInWithProvider(google)}
+          >
             <Icon src="google.svg" />
           </div>
         </div>

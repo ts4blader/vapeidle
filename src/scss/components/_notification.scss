@@ -1,6 +1,6 @@
 .notification {
     p {
-        max-width: 80%;
+        width: fit-content;
         position: fixed;
         padding: 0.5em 1em;
         background: $main-color;
