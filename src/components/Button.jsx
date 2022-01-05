@@ -17,7 +17,7 @@ export default function Button({
     >
       {img && (
         <div className="button__img">
-          <Icon src={`${img}-dark.svg`} alt="" />
+          <Icon src={img} alt="" />
         </div>
       )}
       {text && <div className="button__text">{text}</div>}

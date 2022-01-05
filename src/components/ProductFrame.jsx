@@ -73,7 +73,7 @@ const ProductInfo = ({ data }) => {
               if (counter !== 1) setCounter(counter - 1);
             }}
           >
-            <Icon src="minus-dark.svg" alt="-" />
+            <Icon src="minus.svg" alt="-" />
           </div>
           <ul className="pagination__list">
             <li>{counter}</li>
@@ -82,7 +82,7 @@ const ProductInfo = ({ data }) => {
             className="pagination__end controller"
             onClick={() => setCounter(counter + 1)}
           >
-            <Icon src="add-dark.svg" alt="+" />
+            <Icon src="add.svg" alt="+" />
           </div>
         </div>
       </div>

@@ -34,7 +34,7 @@ export default function Products() {
             <li>By Trend</li>
           </Dropdown>
           <button className="filter">
-            <Button img="filter" />
+            <Button img="filter.svg" />
             <FilterPanel />
           </button>
         </div>

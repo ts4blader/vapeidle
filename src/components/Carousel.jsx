@@ -25,7 +25,7 @@ export default function Carousel({
         </div>
         <div className="view-btn" onClick={action}>
           <div className="text hide show-on-md">View all</div>
-          <Icon src="arrow.svg" alt="arrow" />
+          <Icon src="caret.svg" alt="arrow" />
         </div>
       </div>
       <div className="carousel__middle">

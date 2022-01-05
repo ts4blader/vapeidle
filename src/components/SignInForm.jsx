@@ -73,7 +73,7 @@ export default function SignInForm({ action }) {
             className="facebook-auth"
             onClick={() => signInWithProvider(facebook)}
           >
-            <Icon src="facebook-auth.svg" />
+            <Icon src="facebook.svg" />
           </div>
           <div
             className="github-auth"

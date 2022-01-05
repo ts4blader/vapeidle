@@ -24,19 +24,19 @@ export default function Footer() {
           <ul className="social">
             <li>
               <a href="https://www.youtube.com/">
-                <Icon src="youtube-dark.svg" alt="youtube-icon" />
+                <Icon src="youtube.svg" alt="youtube-icon" />
                 Youtube
               </a>
             </li>
             <li>
               <a href="https://www.facebook.com/">
-                <Icon src="facebook-dark.svg" alt="facebook-icon" />
+                <Icon src="facebook.svg" alt="facebook-icon" />
                 Fanpage
               </a>
             </li>
             <li>
               <a href="https://twitter.com/">
-                <Icon src="twitter-dark.svg" alt="twitter-icon" />
+                <Icon src="twitter.svg" alt="twitter-icon" />
                 Twitter
               </a>
             </li>

@@ -6,7 +6,7 @@ export default function Dropdown({ text, children }) {
     <button className="dropdown">
       <div className="dropdown__agent">
         <div className="text">{text}</div>
-        <Icon src="caret.svg" alt=">" />
+        <Icon src="caret-black.svg" alt=">" />
       </div>
       <ul className="dropdown__list">{children}</ul>
     </button>
