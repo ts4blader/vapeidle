@@ -6,10 +6,12 @@ import Button from "./Button";
 import { useHistory } from "react-router-dom";
 import { CATEGORIES } from "../constants/base";
 import useAuth from "../libs/useAuth";
+import { useSelector } from "../store";
 
 export default function NavMobile() {
   const history = useHistory();
   const { user, logOut } = useAuth();
+  const { myCart } = useSelector();
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -19,7 +21,7 @@ export default function NavMobile() {
       {user && (
         <div className="cart">
           <Icon src="cart.svg" alt="my-cart" />
-          <Badge text={user.cart?.length} />
+          <Badge text={myCart.length} />
         </div>
       )}
       <Icon

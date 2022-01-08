@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Icon from "./Icon";
 import Button from "./Button";
+import useCart from "../libs/useCart";
 
 const ImagesShow = ({ imgs, slug }) => {
   const [select, setSelect] = useState(imgs[0]);
@@ -30,11 +31,8 @@ const ImagesShow = ({ imgs, slug }) => {
   );
 };
 
-const ProductInfo = ({ data }) => {
+const ProductInfo = ({ data, counter, setCounter, color, setColor }) => {
   const { name, price, colors } = data;
-
-  const [counter, setCounter] = useState(1);
-  const [color, setColor] = useState(0);
 
   //* Reset
   useEffect(() => {
@@ -91,12 +89,25 @@ const ProductInfo = ({ data }) => {
 };
 
 export default function ProductFrame({ data }) {
+  const { addProduct } = useCart();
+  const [counter, setCounter] = useState(1);
+  const [color, setColor] = useState(0);
+
   return (
     <div className="product-frame">
       {/* Image show */}
       <ImagesShow imgs={data.imgs} slug={data.slug} />
-      <ProductInfo data={data} />
-      <Button text="Add to Cart" />
+      <ProductInfo
+        data={data}
+        counter={counter}
+        setCounter={setCounter}
+        color={color}
+        setColor={setColor}
+      />
+      <Button
+        text="Add to Cart"
+        action={() => addProduct(data.id, counter, data.colors[color])}
+      />
     </div>
   );
 }

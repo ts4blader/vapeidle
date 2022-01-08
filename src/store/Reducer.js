@@ -10,6 +10,10 @@ const reducer = (state, action) => {
       return { ...state, notificationMessage: action.payload };
     case ACTION.RESET_NOTIFICATION_MESSAGE:
       return { ...state, notificationMessage: "" };
+    case ACTION.SET_CART:
+      return { ...state, myCart: action.payload };
+    case ACTION.RESET_CART:
+      return { ...state, myCart: [] };
     default:
       alert("Something went wrong! Not in action");
       return state;

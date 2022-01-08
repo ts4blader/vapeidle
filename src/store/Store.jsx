@@ -6,6 +6,8 @@ const StoreContext = createContext(null);
 const INITIAL_STATE = {
   searchTerm: "",
   notificationMessage: "",
+  myCart: [],
+  user: null,
 };
 
 function Store({ children }) {

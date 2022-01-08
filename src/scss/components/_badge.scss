@@ -1,10 +1,13 @@
 .badge {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
     position: absolute;
     font-weight: bold;
     color: $white-color;
     background: $main-color;
-    padding: 0.5em 1em;
+    padding: 0.3em 0.8em;
     border-radius: 0.5rem;
     &[data-variant="blacked"] {
         background: $black-color;

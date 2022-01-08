@@ -1,13 +1,16 @@
 .nav__left--mobile {
+    @include flex();
+    gap: 1rem;
+    padding: 1.5rem 0;
+    .cart {
+        position: relative;
+    }
     &[data-show-menu="false"] {
         .menu-content {
             transform: translateY(-100%);
             opacity: 0;
         }
     }
-    @include flex();
-    gap: 1rem;
-    padding: 1.5rem 0;
     .icon {
         cursor: pointer;
         width: 3rem;

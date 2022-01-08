@@ -10,12 +10,13 @@ import {
 } from "firebase/auth";
 import { useDispatch, ACTION } from "../store";
 import { useHistory } from "react-router-dom";
-import { app } from "./useFirebase";
+import { app, db } from "./useFirebase";
 import {
   GoogleAuthProvider,
   FacebookAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
 const google = new GoogleAuthProvider();
 const facebook = new FacebookAuthProvider();
@@ -30,6 +31,7 @@ export default function useAuth() {
   const [user, setUser] = useState(auth.currentUser);
 
   useEffect(() => {
+    //* On auth change
     onAuthStateChanged(auth, (newUser) => {
       if (newUser) setUser(newUser);
       else setUser(null);
@@ -38,18 +40,33 @@ export default function useAuth() {
 
   //* Create user with mail and password
 
-  const createUser = (
+  function createUser(
     email,
     password,
     displayName,
     onSuccess = () => {},
     onFailure = () => {}
-  ) => {
+  ) {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         let random = Math.floor(Math.random() * 5 + 1);
+
+        //* add cart to firestore
+        setDoc(doc(db, "userCarts", user.uid), {
+          myCart: [],
+        })
+          .then(() => {
+            //Created
+          })
+          .catch((error) => {
+            dispatch({
+              type: ACTION.SET_NOTIFICATION_MESSAGE,
+              payload: error.message,
+            });
+          });
+
         //* Update profile
         updateProfile(user, {
           displayName: displayName,
@@ -80,7 +97,7 @@ export default function useAuth() {
         //* Custom function
         onFailure();
       });
-  };
+  }
 
   //*Sign in with mail and password
 
