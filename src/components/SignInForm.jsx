@@ -5,7 +5,7 @@ import Icon from "./Icon";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import useAuth, { google, facebook, github } from "../libs/useAuth";
+import AuthHelper, { google, facebook, github } from "../libs/AuthHelper";
 
 const schema = yup
   .object({
@@ -29,7 +29,7 @@ export default function SignInForm({ action }) {
   } = useForm({ resolver: yupResolver(schema) });
 
   //* Auth
-  const { signIn, signInWithProvider } = useAuth();
+  const { signIn, signInWithProvider } = AuthHelper();
 
   //* Submit handler
   const onSubmit = (data) => {

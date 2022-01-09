@@ -4,7 +4,7 @@ import Button from "./Button";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import useAuth from "../libs/useAuth";
+import AuthHelper from "../libs/AuthHelper";
 
 const schema = yup
   .object({
@@ -24,7 +24,7 @@ const schema = yup
   .required();
 
 export default function SignUpForm({ action }) {
-  const { createUser } = useAuth();
+  const { createUser } = AuthHelper();
 
   const {
     register,

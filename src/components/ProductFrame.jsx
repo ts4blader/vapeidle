@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Icon from "./Icon";
 import Button from "./Button";
-import useCart from "../libs/useCart";
+import CartHelper from "../libs/CartHelper";
 
 const ImagesShow = ({ imgs, slug }) => {
   const [select, setSelect] = useState(imgs[0]);
@@ -89,7 +89,7 @@ const ProductInfo = ({ data, counter, setCounter, color, setColor }) => {
 };
 
 export default function ProductFrame({ data }) {
-  const { addProduct } = useCart();
+  const { addProduct } = CartHelper();
   const [counter, setCounter] = useState(1);
   const [color, setColor] = useState(0);
 
