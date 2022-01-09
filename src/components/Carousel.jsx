@@ -34,7 +34,7 @@ export default function Carousel({
           <div className="glide__track" data-glide-el="track">
             <ul className="glide__slides">
               {data.map((item) => (
-                <li className="glide__slide" key={item.name + id}>
+                <li className="glide__slide" key={`${id}-${item.slug}`}>
                   <Link to={`/products/${item.slug}`}>
                     <img src={item.img} alt={item.name} />
                     <div className="content">
