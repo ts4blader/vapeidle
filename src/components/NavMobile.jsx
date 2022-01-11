@@ -19,7 +19,7 @@ export default function NavMobile() {
     <div className="nav__left--mobile" data-show-menu={showMenu}>
       {/* Controllers */}
       {user && (
-        <div className="cart">
+        <div className="cart" onClick={() => history.push("/cart")}>
           <Icon src="cart.svg" alt="my-cart" />
           <Badge text={cart.length} />
         </div>

@@ -1,0 +1,89 @@
+.cart-page {
+    h3 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        font-family: $sub-font;
+    }
+    .cart__list {
+        .no-item {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-top: 1em;
+        }
+    }
+    .total-row {
+        border-top: 1px solid $black-color;
+        margin-top: 2em;
+        & > div {
+            @include flex(space-between, row);
+        }
+        .header-row {
+            font-weight: bold;
+        }
+        .value-row {
+            color: $main-color;
+        }
+    }
+    .btn-panel {
+        margin-top: 1em;
+        @include flex();
+        gap: 1rem;
+        .button:nth-child(2) {
+            flex-grow: 1;
+        }
+    }
+    .cart-item {
+        position: relative;
+        @include flex();
+        align-items: stretch;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        &__preview {
+            border-radius: 1rem;
+            overflow: hidden;
+            width: 35%;
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        &__info {
+            width: 60%;
+            .name {
+                white-space: nowrap;
+                font-weight: bold;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .price {
+                font-size: 1.2rem;
+            }
+            .controller {
+                margin-top: 0.5em;
+                font-size: 1.2rem;
+                display: flex;
+                align-items: stretch;
+                gap: 1rem;
+                & > div {
+                    cursor: pointer;
+                }
+                .color-controller {
+                    .agent {
+                        border: 3px solid rgb(116, 116, 116);
+                        border-radius: 0.5rem;
+                        width: 3rem;
+                        height: 100%;
+                    }
+                }
+                .remove-controller {
+                    @include flex();
+                    background: $main-color;
+                    padding: 0 1em;
+                    color: $white-color;
+                    font-weight: bold;
+                    border-radius: 0.5rem;
+                }
+            }
+        }
+    }
+}

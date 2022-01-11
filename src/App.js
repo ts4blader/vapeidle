@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Products from "./pages/Products";
 import NotFound from "./pages/404";
 import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
 import { Switch, Route, useLocation } from "react-router-dom";
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route path="/products/:slug" exact>
           <ProductDetail />
+        </Route>
+        <Route path="/cart" exact>
+          <Cart />
         </Route>
         <Route path="*">
           <NotFound />

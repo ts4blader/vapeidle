@@ -45,7 +45,13 @@ export default function useCart() {
     }
   };
   //*   Remove
-  const removeProduct = (id, color) => {};
+  const removeProduct = (id) => {
+    let myCart = cart.filter((item) => item.id !== id);
+
+    setDoc(doc(db, "userCarts", user.uid), { myCart }).then(() => {
+      setCart(myCart);
+    });
+  };
 
   return { addProduct, removeProduct };
 }
