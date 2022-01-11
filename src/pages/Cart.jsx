@@ -75,6 +75,8 @@ export default function Cart() {
     };
   }, [myCart]);
 
+  const isEmpty = cart.length === 0;
+
   return (
     <main className="cart-page">
       <div className="container">
@@ -82,37 +84,50 @@ export default function Cart() {
           <h3>My Cart</h3>
         </div>
 
-        <ul className="cart__list">
-          {myCart.length === 0 ? (
-            <div className="no-item">Add an item into your cart</div>
-          ) : (
-            myCart.map((item) => (
+        {isEmpty ? (
+          <div className="no-item">Add an item into your cart</div>
+        ) : (
+          <ul className="cart__list">
+            {myCart.map((item) => (
               <li className="cart__item" key={`${item.id}`}>
                 <CartItem data={item} />
               </li>
-            ))
-          )}
-        </ul>
+            ))}
+          </ul>
+        )}
 
-        <div className="total-row">
-          <div className="header-row">
-            <div className="items">Amount</div>
-            <div className="prices">Total</div>
+        {!isEmpty && (
+          <div className="total-row">
+            <div className="header-row">
+              <div className="items">Amount</div>
+              <div className="prices">Total</div>
+            </div>
+            <div className="value-row">
+              <div className="items">{total.item}</div>
+              <div className="prices">{total.price + "$"}</div>
+            </div>
           </div>
-          <div className="value-row">
-            <div className="items">{total.item}</div>
-            <div className="prices">{total.price + "$"}</div>
-          </div>
-        </div>
+        )}
 
-        <div className="btn-panel">
-          <Button
-            img="cart.svg"
-            variant="bordered-blacked"
-            action={() => history.push("/products")}
-          />
-          <Button text="Payment" />
-        </div>
+        {isEmpty ? (
+          <div className="btn-panel">
+            <Button
+              img="cart.svg"
+              text="Go back to shop"
+              variant="bordered-blacked"
+              action={() => history.push("/products")}
+            />
+          </div>
+        ) : (
+          <div className="btn-panel">
+            <Button
+              img="cart.svg"
+              variant="bordered-blacked"
+              action={() => history.push("/products")}
+            />
+            <Button text="Payment" />
+          </div>
+        )}
       </div>
     </main>
   );
