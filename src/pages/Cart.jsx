@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { useAuth } from "../store/useAuth";
 import { PRODUCTS } from "../constants/products";
 import Counter from "../components/Counter";
@@ -13,7 +13,11 @@ const CartItem = ({ data }) => {
 
   const [counter, setCounter] = useState(quantity);
 
-  const { removeProduct } = CartHelper();
+  const { removeProduct, updateProduct } = CartHelper();
+
+  useEffect(() => {
+    updateProduct(id, counter);
+  }, [counter]);
 
   return (
     <div className="cart-item">
@@ -32,17 +36,10 @@ const CartItem = ({ data }) => {
             <Counter counter={counter} setCounter={setCounter} />
           </div>
           {/* Color controller */}
-          <div className="color-controller">
-            <div className="agent" style={{ backgroundColor: color }}></div>
-            <ul className="color-list">
-              {colors.map((item) => (
-                <li
-                  key={`${name}-${item}`}
-                  style={{ backgroundColor: item }}
-                ></li>
-              ))}
-            </ul>
-          </div>
+          <div
+            className="color-controller"
+            style={{ backgroundColor: color }}
+          ></div>
           {/* Remove button */}
           <div className="remove-controller" onClick={() => removeProduct(id)}>
             X
@@ -54,7 +51,7 @@ const CartItem = ({ data }) => {
 };
 
 export default function Cart() {
-  const { user, cart } = useAuth();
+  const { cart } = useAuth();
   const history = useHistory();
 
   const myCart = useMemo(() => {
@@ -73,7 +70,7 @@ export default function Cart() {
       item: myCart.reduce((value, next) => value + next.quantity, 0),
       price: myCart.reduce((value, next) => value + next.data?.price, 0),
     };
-  }, [myCart]);
+  }, [cart]);
 
   const isEmpty = cart.length === 0;
 

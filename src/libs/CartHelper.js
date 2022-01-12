@@ -46,12 +46,26 @@ export default function useCart() {
   };
   //*   Remove
   const removeProduct = (id) => {
-    let myCart = cart.filter((item) => item.id !== id);
+    let myCart = cart.filter((element) => element.id !== id);
 
     setDoc(doc(db, "userCarts", user.uid), { myCart }).then(() => {
       setCart(myCart);
     });
   };
 
-  return { addProduct, removeProduct };
+  const updateProduct = (id, quantity) => {
+    let itemIndex = cart.findIndex((element) => element.id === id);
+
+    if (itemIndex !== -1) {
+      let myCart = cart;
+      myCart[itemIndex] = { ...myCart[itemIndex], quantity };
+      setDoc(doc(db, "userCarts", user.uid), { myCart }).then(() => {
+        setCart(myCart);
+      });
+    } else {
+      console.log("The item not in my cart");
+    }
+  };
+
+  return { addProduct, removeProduct, updateProduct };
 }
