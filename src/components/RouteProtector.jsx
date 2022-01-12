@@ -20,7 +20,7 @@ export default function RouteProtector({
       history.push(redirect);
       alert(message);
     }
-  }, []);
+  }, [user]);
 
   return <>{children}</>;
 }

@@ -6,7 +6,7 @@ import Button from "../components/Button";
 import { useHistory } from "react-router-dom";
 import CartHelper from "../libs/CartHelper";
 
-const CartItem = ({ data }) => {
+const CartItem = ({ data, setTrigger }) => {
   const history = useHistory();
   const { name, price, img, slug } = data.data;
   const { color, quantity, id } = data;
@@ -17,6 +17,7 @@ const CartItem = ({ data }) => {
 
   useEffect(() => {
     updateProduct(id, counter);
+    setTrigger((state) => !state);
   }, [counter]);
 
   return (
@@ -53,29 +54,26 @@ const CartItem = ({ data }) => {
 export default function Cart() {
   const { cart } = useAuth();
   const history = useHistory();
-
-  const myCart = useMemo(() => {
-    return cart.map((item) => {
-      // Get data from constant
-      let cartItem = PRODUCTS.filter(
-        (element) => item.productId === element.id
-      )[0];
-
-      return { ...item, data: cartItem };
-    });
-  }, [cart]);
-
-  const total = useMemo(() => {
-    return {
-      item: myCart.reduce((sum, item) => sum + item.quantity, 0),
-      price: myCart.reduce(
-        (sum, item) => sum + item.data?.price + item.quantity,
-        0
-      ),
-    };
-  }, [cart]);
+  const [trigger, setTrigger] = useState(false);
 
   const isEmpty = cart.length === 0;
+
+  const myCart = cart.map((item) => {
+    // Get data from constant
+    let cartItem = PRODUCTS.filter(
+      (element) => item.productId === element.id
+    )[0];
+
+    return { ...item, data: cartItem };
+  });
+
+  const total = {
+    item: myCart.reduce((sum, item) => sum + item.quantity, 0),
+    price: myCart.reduce(
+      (sum, item) => sum + item.data.price * item.quantity,
+      0
+    ),
+  };
 
   return (
     <main className="cart-page">
@@ -90,7 +88,7 @@ export default function Cart() {
           <ul className="cart__list">
             {myCart.map((item) => (
               <li className="cart__item" key={`${item.id}`}>
-                <CartItem data={item} />
+                <CartItem data={item} setTrigger={setTrigger} />
               </li>
             ))}
           </ul>
