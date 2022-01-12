@@ -67,8 +67,11 @@ export default function Cart() {
 
   const total = useMemo(() => {
     return {
-      item: myCart.reduce((value, next) => value + next.quantity, 0),
-      price: myCart.reduce((value, next) => value + next.data?.price, 0),
+      item: myCart.reduce((sum, item) => sum + item.quantity, 0),
+      price: myCart.reduce(
+        (sum, item) => sum + item.data?.price + item.quantity,
+        0
+      ),
     };
   }, [cart]);
 
