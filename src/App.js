@@ -9,6 +9,7 @@ import NotFound from "./pages/404";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import { Switch, Route, useLocation } from "react-router-dom";
+import RouteProtector from "./components/RouteProtector";
 
 function App() {
   //* On route change
@@ -32,7 +33,9 @@ function App() {
           <Home />
         </Route>
         <Route path="/login" exact>
-          <Login />
+          <RouteProtector process="/" message="You must logout first!">
+            <Login />
+          </RouteProtector>
         </Route>
         <Route path="/products" exact>
           <Products />
@@ -41,7 +44,9 @@ function App() {
           <ProductDetail />
         </Route>
         <Route path="/cart" exact>
-          <Cart />
+          <RouteProtector redirect="/login" message="You must login first!">
+            <Cart />
+          </RouteProtector>
         </Route>
         <Route path="*">
           <NotFound />

@@ -8,7 +8,7 @@ import CartHelper from "../libs/CartHelper";
 
 const CartItem = ({ data }) => {
   const history = useHistory();
-  const { name, price, img, colors, slug } = data.data;
+  const { name, price, img, slug } = data.data;
   const { color, quantity, id } = data;
 
   const [counter, setCounter] = useState(quantity);
@@ -51,7 +51,7 @@ const CartItem = ({ data }) => {
 };
 
 export default function Cart() {
-  const { user, cart } = useAuth();
+  const { cart } = useAuth();
   const history = useHistory();
 
   const myCart = useMemo(() => {
@@ -73,13 +73,6 @@ export default function Cart() {
   }, [cart]);
 
   const isEmpty = cart.length === 0;
-
-  // Route protector
-  useEffect(() => {
-    if (user) return;
-    history.push("/login");
-    alert("Please login first!");
-  }, []);
 
   return (
     <main className="cart-page">
