@@ -51,7 +51,7 @@ const CartItem = ({ data }) => {
 };
 
 export default function Cart() {
-  const { cart } = useAuth();
+  const { user, cart } = useAuth();
   const history = useHistory();
 
   const myCart = useMemo(() => {
@@ -73,6 +73,13 @@ export default function Cart() {
   }, [cart]);
 
   const isEmpty = cart.length === 0;
+
+  // Route protector
+  useEffect(() => {
+    if (user) return;
+    history.push("/login");
+    alert("Please login first!");
+  }, []);
 
   return (
     <main className="cart-page">

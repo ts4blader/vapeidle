@@ -26,6 +26,7 @@ function App() {
     <div className="app">
       <Nav />
       <Notification />
+      {/* Switch Section */}
       <Switch>
         <Route path="/" exact>
           <Home />
