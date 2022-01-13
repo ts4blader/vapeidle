@@ -6,13 +6,15 @@
         img {
             border-radius: 1rem;
             margin-top: 1em;
-            height: 30rem;
         }
     }
     .follow-section {
         margin-bottom: 3rem;
         .hero__labels {
             display: none;
+        }
+        .hero__preview {
+            @include flex();
         }
         video {
             width: MIN(100%, 50rem);

@@ -1,8 +1,10 @@
 .nav {
     position: relative;
-    @include flex(space-between, row);
     background: $white-color;
     z-index: $float-layer;
+    .container {
+        @include flex(space-between, row);
+    }
     &__right {
         cursor: pointer;
         .img {

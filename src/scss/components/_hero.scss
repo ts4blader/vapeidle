@@ -18,6 +18,12 @@
             box-shadow: 0 0 1rem 0 rgba($color: $black-color, $alpha: 0.25);
         }
     }
+    &__preview {
+        img {
+            object-fit: cover;
+            height: MAX(30rem, 50vmin);
+        }
+    }
     &__content {
         .title {
             font-size: 3rem;

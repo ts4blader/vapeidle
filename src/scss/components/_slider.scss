@@ -41,7 +41,7 @@ $float: 3;
                 .bar {
                     margin: 1rem 0;
                     width: 1px;
-                    min-height: 15rem;
+                    min-height: MAX(15rem, 30vmin);
                     background: $white-color;
                 }
             }

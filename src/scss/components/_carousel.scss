@@ -46,3 +46,16 @@
         }
     }
 }
+
+@include responsive($break-point-sm) {
+    .carousel {
+        .glide__slides {
+            padding-left: 10%;
+            .glide__slide {
+                .content {
+                    padding: 1em;
+                }
+            }
+        }
+    }
+}

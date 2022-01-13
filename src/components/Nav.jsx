@@ -7,12 +7,14 @@ export default function Nav() {
   const history = useHistory();
 
   return (
-    <nav className="nav container">
-      <div className="nav__right" onClick={() => history.push("/")}>
-        <Image src="logo-light.png" alt="Logo" />
-      </div>
-      <div className="nav__left">
-        <NavMobile />
+    <nav className="nav">
+      <div className="container">
+        <div className="nav__right" onClick={() => history.push("/")}>
+          <Image src="logo-light.png" alt="Logo" />
+        </div>
+        <div className="nav__left">
+          <NavMobile />
+        </div>
       </div>
     </nav>
   );

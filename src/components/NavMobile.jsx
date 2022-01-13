@@ -16,7 +16,7 @@ export default function NavMobile() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="nav__left--mobile" data-show-menu={showMenu}>
+    <div className="nav-mobile" data-show-menu={showMenu}>
       {/* Controllers */}
       {user && (
         <div className="cart" onClick={() => history.push("/cart")}>
