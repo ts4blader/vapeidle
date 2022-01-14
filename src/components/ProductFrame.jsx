@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Icon from "./Icon";
 import Button from "./Button";
+import Counter from "./Counter";
 import CartHelper from "../libs/CartHelper";
 
 const ImagesShow = ({ imgs, slug }) => {
@@ -64,25 +65,7 @@ const ProductInfo = ({ data, counter, setCounter, color, setColor }) => {
       {/* Quantity */}
       <div className="quantity-info info">
         <div className="title">Quantity</div>
-        <div className="pagination">
-          <div
-            className="pagination__start controller"
-            onClick={() => {
-              if (counter !== 1) setCounter(counter - 1);
-            }}
-          >
-            <Icon src="minus.svg" alt="-" />
-          </div>
-          <ul className="pagination__list">
-            <li>{counter}</li>
-          </ul>
-          <div
-            className="pagination__end controller"
-            onClick={() => setCounter(counter + 1)}
-          >
-            <Icon src="add.svg" alt="+" />
-          </div>
-        </div>
+        <Counter counter={counter} setCounter={setCounter} />
       </div>
     </div>
   );

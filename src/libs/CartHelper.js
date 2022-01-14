@@ -9,6 +9,11 @@ export default function useCart() {
 
   //*   Add
   const addProduct = (id, quantity, color) => {
+    if (!user) {
+      alert("You must be logged in first!");
+      return;
+    }
+
     let cartItem = {
       id: id + color,
       quantity,

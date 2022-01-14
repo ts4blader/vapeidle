@@ -24,6 +24,9 @@
             font-weight: 600;
             margin-top: 0.5em;
         }
+        .price {
+            color: $main-color;
+        }
     }
     .colors-info {
         ul {
@@ -48,8 +51,8 @@
         }
     }
     .quantity-info {
-        .pagination {
-            margin-top: 0.5rem;
+        .counter {
+            margin-top: 0.5em;
             justify-content: flex-start;
             gap: 1rem;
         }
