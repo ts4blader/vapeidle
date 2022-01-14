@@ -6,7 +6,11 @@
     border-radius: 1rem;
     margin-top: 1em;
     border: 2px solid $black-color;
+    .icon {
+        flex-shrink: 0;
+    }
     input {
+        font-size: inherit;
         flex-grow: 1;
     }
     .error-msg {
