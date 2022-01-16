@@ -2,6 +2,7 @@
     position: relative;
     background: $white-color;
     z-index: $float-layer;
+    padding: 1.5rem 0;
     .container {
         @include flex(space-between, row);
     }

@@ -1,0 +1,52 @@
+.nav-desktop {
+    @include flex();
+    gap: 1em;
+    .search-panel {
+        cursor: pointer;
+        position: relative;
+        padding: 0.3em 0.5em;
+        border-radius: 0.5rem;
+        border: 2px solid $black-color;
+        .search-bar {
+            @include abs-center(x);
+            top: 150%;
+        }
+    }
+    .user-panel {
+        position: relative;
+        &:focus-within {
+            .user__option {
+                visibility: initial;
+            }
+        }
+        .user__avatar {
+            cursor: pointer;
+            .icon {
+                width: 3.5rem;
+                border-radius: 0.5rem;
+                overflow: hidden;
+            }
+        }
+        .user__option {
+            visibility: hidden;
+            @include flex();
+            gap: 1.5rem;
+            position: absolute;
+            top: 150%;
+            right: 0;
+            background: $white-color;
+            padding: 1em;
+            box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            li {
+                cursor: pointer;
+            }
+            .cart-option {
+                position: relative;
+                .badge {
+                    padding: 0.2rem 0.5rem;
+                }
+            }
+        }
+    }
+}

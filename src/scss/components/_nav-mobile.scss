@@ -1,7 +1,6 @@
 .nav-mobile {
     @include flex();
     gap: 1rem;
-    padding: 1.5rem 0;
     .cart {
         position: relative;
     }
@@ -25,16 +24,6 @@
         transition: 0.3s ease;
         padding: 2rem 0;
         border-bottom: 5px solid rgba($color: $black-color, $alpha: 0.25);
-    }
-    .nav__list {
-        text-align: center;
-        font-size: 2rem;
-        font-weight: 600;
-        li {
-            text-transform: capitalize;
-            cursor: pointer;
-            margin-top: 0.5em;
-        }
     }
     .account-panel {
         .button {

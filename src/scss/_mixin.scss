@@ -55,22 +55,22 @@
 }
 .hide-on-xs {
     @include responsive($break-point-xs) {
-        display: none;
+        display: none !important;
     }
 }
 .hide-on-sm {
     @include responsive($break-point-sm) {
-        display: none;
+        display: none !important;
     }
 }
 .hide-on-md {
     @include responsive($break-point-md) {
-        display: none;
+        display: none !important;
     }
 }
 .hide-on-lg {
     @include responsive($break-point-lg) {
-        display: none;
+        display: none !important;
     }
 }
 

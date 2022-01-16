@@ -1,0 +1,19 @@
+.nav__list {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    li {
+        text-transform: capitalize;
+        cursor: pointer;
+        margin-top: 0.5em;
+    }
+}
+
+@include responsive($break-point-md) {
+    .nav__list {
+        font-size: 1.8rem;
+        font-weight: bold;
+        @include flex();
+        gap: 1em;
+    }
+}

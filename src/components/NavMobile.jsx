@@ -3,8 +3,8 @@ import Icon from "./Icon";
 import Badge from "./Badge";
 import SearchBar from "./SearchBar";
 import Button from "./Button";
+import NavList from "./NavList";
 import { useHistory } from "react-router-dom";
-import { CATEGORIES } from "../constants/base";
 import AuthHelper from "../libs/AuthHelper";
 import { useAuth } from "../store/useAuth";
 
@@ -16,7 +16,7 @@ export default function NavMobile() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="nav-mobile" data-show-menu={showMenu}>
+    <div className="nav-mobile hide-on-md" data-show-menu={showMenu}>
       {/* Controllers */}
       {user && (
         <div className="cart" onClick={() => history.push("/cart")}>
@@ -33,20 +33,7 @@ export default function NavMobile() {
         {/* Search Bar */}
         <SearchBar />
         {/* Nav list */}
-        <ul className="nav__list">
-          <li onClick={() => history.push("/")}>home</li>
-          {CATEGORIES.map((item) => (
-            <li
-              key={`${item}_nav-mobile`}
-              onClick={() => {
-                history.push(`/products?category=${item}`);
-                setShowMenu(false);
-              }}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
+        <NavList setShowMenu={setShowMenu} />
         {/* Account Panel */}
         <div className="account-panel">
           {user ? (
