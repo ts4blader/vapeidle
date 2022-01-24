@@ -12,6 +12,9 @@ html {
     @include responsive($break-point-sm) {
         font-size: 70%;
     }
+    @include responsive($break-point-lg) {
+        font-size: 75%;
+    }
 }
 
 body {
