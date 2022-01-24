@@ -1,4 +1,7 @@
 .cart-page {
+    .container {
+        max-width: 100rem;
+    }
     h3 {
         font-size: 2.5rem;
         font-weight: bold;
@@ -8,6 +11,15 @@
         font-size: 2rem;
         text-align: center;
         margin-top: 1em;
+        padding: 15vh 0;
+        .icon {
+            width: 10rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .text {
+            margin-top: 0.5em;
+        }
     }
     .total-row {
         border-top: 1px solid $black-color;
@@ -29,6 +41,9 @@
         .button:nth-child(2) {
             flex-grow: 1;
         }
+    }
+    .cart__list {
+        min-height: 30vh;
     }
     .cart-item {
         position: relative;
@@ -78,6 +93,48 @@
                     font-weight: bold;
                     border-radius: 0.5rem;
                 }
+            }
+        }
+    }
+}
+
+@include responsive($break-point-md) {
+    .cart-page {
+        .cart__list {
+            min-height: 50vh;
+        }
+        .no-item {
+            font-size: 2.5rem;
+        }
+        .btn-panel {
+            gap: 2rem;
+            .button:nth-child(2) {
+                flex-grow: 6;
+            }
+            .button:nth-child(1) {
+                flex-grow: 1;
+            }
+        }
+    }
+}
+
+@include responsive($break-point-lg) {
+    .cart-page {
+        .cart__list {
+            min-height: 80vh;
+        }
+        .cart-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            .cart__list {
+                flex: 6;
+            }
+            .cart-payment {
+                position: sticky;
+                align-self: flex-start;
+                top: 0;
+                flex: 3;
             }
         }
     }

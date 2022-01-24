@@ -25,3 +25,16 @@
         }
     }
 }
+@include responsive($break-point-lg) {
+    .products-show {
+        .products__list {
+            gap: 3rem;
+            li {
+                flex-basis: 20rem;
+                .thumbnail {
+                    min-height: 20rem;
+                }
+            }
+        }
+    }
+}

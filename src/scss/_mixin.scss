@@ -75,21 +75,25 @@
 }
 
 .show-on-xs {
+    display: none;
     @include responsive($break-point-xs) {
         display: initial;
     }
 }
 .show-on-sm {
+    display: none;
     @include responsive($break-point-sm) {
         display: initial;
     }
 }
 .show-on-md {
+    display: none;
     @include responsive($break-point-md) {
         display: initial;
     }
 }
 .show-on-lg {
+    display: none;
     @include responsive($break-point-lg) {
         display: initial;
     }
@@ -129,6 +133,13 @@
     @include responsive($break-point-lg) {
         width: 80%;
     }
+}
+.container-fluid {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 // Animation delay

@@ -14,6 +14,7 @@
             }
         }
         .view-btn {
+            color: $main-color;
             cursor: pointer;
             @include flex();
             gap: 0.5rem;

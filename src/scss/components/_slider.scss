@@ -57,3 +57,27 @@ $float: 3;
         }
     }
 }
+
+@include responsive($break-point-lg) {
+    .slider {
+        .glide {
+            &__bullets {
+                gap: 1rem;
+            }
+            &__slide {
+                height: MIN(50vw, 80rem);
+                img {
+                    min-height: unset;
+                }
+                .basic-info {
+                    font-size: 2rem;
+                }
+                .name {
+                    font-weight: bold;
+                    min-width: 30rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

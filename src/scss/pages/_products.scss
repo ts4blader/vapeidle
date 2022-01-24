@@ -1,4 +1,7 @@
 .products-page {
+    & > .container {
+        max-width: 100rem;
+    }
     .pagination {
         margin-top: 3rem;
     }

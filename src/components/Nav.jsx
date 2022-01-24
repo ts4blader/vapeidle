@@ -15,7 +15,7 @@ export default function Nav() {
           <Image src="logo-light.png" alt="Logo" />
         </div>
 
-        <div className="nav__middle hide show-on-md">
+        <div className="nav__middle show-on-md">
           <NavList />
         </div>
 

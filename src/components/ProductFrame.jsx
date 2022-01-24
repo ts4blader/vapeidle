@@ -80,17 +80,19 @@ export default function ProductFrame({ data }) {
     <div className="product-frame">
       {/* Image show */}
       <ImagesShow imgs={data.imgs} slug={data.slug} />
-      <ProductInfo
-        data={data}
-        counter={counter}
-        setCounter={setCounter}
-        color={color}
-        setColor={setColor}
-      />
-      <Button
-        text="Add to Cart"
-        action={() => addProduct(data.id, counter, data.colors[color])}
-      />
+      <div>
+        <ProductInfo
+          data={data}
+          counter={counter}
+          setCounter={setCounter}
+          color={color}
+          setColor={setColor}
+        />
+        <Button
+          text="Add to Cart"
+          action={() => addProduct(data.id, counter, data.colors[color])}
+        />
+      </div>
     </div>
   );
 }

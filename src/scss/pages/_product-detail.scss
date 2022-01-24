@@ -1,4 +1,5 @@
 .product-detail-page {
+    max-width: 100rem;
     .product-blog {
         .title {
             font-family: $sub-font;
@@ -27,11 +28,16 @@
             }
         }
         .relative-products {
+            .relative__list {
+                margin-top: 2rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+                gap: 2rem;
+            }
             .title {
                 text-align: left;
             }
             .relative__item {
-                margin-top: 2rem;
                 position: relative;
                 img {
                     filter: brightness(0.7);
@@ -43,9 +49,59 @@
                     bottom: 0;
                     left: 0;
                     color: $white-color;
+                    font-size: 2rem;
                     .name {
-                        font-size: 2rem;
                         font-weight: bold;
+                    }
+                    .price {
+                        font-size: 0.8em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive($break-point-md) {
+    .product-detail-page {
+        .product-blog {
+            .relative-products {
+                .relative__item {
+                    .basic {
+                        font-size: 1.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive($break-point-lg) {
+    .product-detail-page {
+        .product-blog {
+            display: flex;
+            justify-content: space-between;
+            gap: 3rem;
+            margin: 5em 0;
+            .title {
+                font-size: 3.5rem;
+            }
+            .content {
+                width: 65%;
+                h3 {
+                    font-size: 2.5rem;
+                }
+            }
+            .relative-products {
+                width: 30%;
+                .title {
+                    font-size: 2rem;
+                }
+                .relative__item {
+                    .basic {
+                        .name {
+                            font-size: 1.6rem;
+                        }
                     }
                 }
             }

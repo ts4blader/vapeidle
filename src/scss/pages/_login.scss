@@ -4,3 +4,20 @@
         max-width: 50rem;
     }
 }
+
+@include responsive($break-point-sm) {
+    .login-page {
+        min-height: 80vh;
+        @include flex();
+        margin: 0;
+        background-size: cover;
+        background-attachment: fixed;
+        .signin-form,
+        .signup-form {
+            background: $white-color;
+            padding: 5vmin;
+            border-radius: 1rem;
+            box-shadow: 0 0 2rem 0 rgba($color: $black-color, $alpha: 0.1);
+        }
+    }
+}
